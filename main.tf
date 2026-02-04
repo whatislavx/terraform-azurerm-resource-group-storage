@@ -1,24 +1,3 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "3.105.0"
-    }
-  }
-
-  backend "azurerm" {
-    storage_account_name = "tfmoduleswhatislavxsa"
-    container_name       = "tfstate"
-    resource_group_name  = "tf-modules-whatislavx-rg"
-    key                  = "terraform.tfstate"
-    use_oidc             = true
-  }
-}
-
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "example" {
   name     = var.resource_group_name
   location = var.location
